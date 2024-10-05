@@ -1,0 +1,177 @@
+\chapter{Local spectra}
+\label{chapter:results} 
+
+
+\section{Maps of local spectra in the atmosphere}
+
+\begin{itemize}
+		
+\item Analysis, what it is, why we used it
+
+\textbf{The Dataset}
+
+Analysis refers to an estimate of the current state of the atmosphere. Its production is a key step of numerical weather prediction since it provides the initial conditions from which the forecasts can be run. It is usually produced through the combination of simulated and observational data in a process called data assimilation. The analysis dataset we use in this thesis is the \gls{ecmwf}, \gls{ifs} operational analysis.
+
+Reanalysis refers to the production of these best guesses for the atmospheric state for times in the past. They are usually produced at a lower resolution than analysis but have the advantage of using a single model, whereas the model used to produce analysis is often upgraded. One of the most widely used reanalyses currently is the \gls{era5}.
+
+Our goal was to investigate the global mesoscale atmospheric state in a way that best reflected our current knowledge of that state. The widely used heuristic for effective resolution is eight times the grid resolution \cite{skamarock2004evaluating}. In ERA5, the grid resolution is around 25 km so the estimated effective resolution is 200~km. In practice this means most of the mesoscales are unresolved and indeed the spectral characteristics of the mesoscales are either not reproduced or difficult to detect \cite{li2023intercomparison}. By contrast, the ECMWF IFS operational analysis provides a high-resolution ($\sfrac{1}{12}^\circ$, estimated effective resolution of 70~km) dataset that still assimilates observational data. This operational analysis demonstrates a clear shallowing that agrees well with high-resolution global simulations \cite{Wang2021a, stephan2022atmospheric}. 
+
+We analysed the whole of 2020, with hourly means sampled 4 times per day at 00, 06, 12 and 18 UTC. This study was confined to the 200 and 600~hPa pressure levels. Precipitation and orography data were sourced from ERA5 for 2020 \cite{hersbach2020era5}. Although the ECMWF model changes frequently, in 2020 it only changed once in June, the impact of this change on our analysis was found to be minimal. 
+
+\item{Global spectra}
+
+\textbf{Comparison with spherical harmonics over the same period}
+
+Figure \ref{fig:ch4:SphvsFiltSpec} shows a comparison of the spherical harmonic and filtering spectrum over 2020 in the analysis. In our data analysis we resolved the filter spectrum up to a filtering scale of 1000~km. As discussed in [CITE PART OF METHOD CHAPTER] we expect to see some differences between the two spectra, in particular the filtering spectrum can be viewed as a spectrally local average of the Fourier spectrum. In addition, there is no reason for the filter scale and the corresponding wavenumber to exactly coincide. Given these considerations, Figure \ref{fig:ch4:SphvsFiltSpec} demonstrates a good agreement between the two methods, showing that general trends in slope are indeed reproduced. The resolved mesoscales in the operational analysis are indicated with red dashed lines.  
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Chap4/SphvsFiltSpecCombined.pdf}
+    \caption[A comparison of the spherical harmonic spectrum and the filtering spectrum.]
+    {
+        The average spherical harmonic spectrum for 2020 compared with the average filtering spectrum for 600 hPa (left) and 200 hPa (right). 
+        \label{fig:ch4:SphvsFiltSpec}
+    }
+\end{figure}
+
+\item{Rotational vs divergent motion}
+
+Figure \ref{fig:ch4:RotDivSpec} shows the spectrum of the rotational (horizontally divergence-free) and divergent (irrotational) components of the global spectrum for 2020. This is obtained by performing a Helmholtz decomposition on the flow and then finding the filtering spectrum associated with the resulting divergence-free and curl-free components.
+
+While a Helmholtz decomposition is not strictly a wave decomposition, the divergent component strongly aligns with geostrophically unbalanced motion, mostly consisting of gravity waves at our scales, and the rotational with balanced motions \cite{morfa_avalos_2024,waite2020untangling}. 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Chap4/RotDivSpec.pdf}
+    \caption[Rotational and divergent components of the global filtering spectrum.]
+    {
+        The average filtering spectrum for 2020 decomposed into rotational (blue) and divergent (red) components for 600 hPa (left) and 200 hPa (right). 
+        \label{fig:ch4:RotDivSpec}
+    }
+\end{figure}
+
+\item{Global spectra with Rotational divergent decomposition}
+
+\item{Map of spectral slopes}
+
+\item{Map showing relative KE of divergent and rotational component}
+
+\item{Map showing rotational and divergent slopes in different locations}
+
+\item{Show map of mesoscale energy flux}
+
+\item{Bootstrapping}
+
+\item{Map showing bootstrap variance of spectral slope}
+		
+\end{itemize}
+
+\section{Conditioned maps}
+
+\begin{itemize}
+
+\item{We explain in detail what conditioned spectra are in chap 2 but in brief...}
+
+\item{Seemed clear that spectra are strongly influenced by convective events, conditioning on precipitation... }
+
+\item{We can further explore this by breaking down into lsp and cp}
+
+\item{Show aggregate energy fluxes for lsp and cp}
+
+\item{This is an energy aggregate, if we were to consider the spectrum at a particular point at a particular time no guarantee a spectral slope would make sense}
+
+\item{However, let us assume such a slope does make sense. What is the average slope we observe, in other words, the non energy weighted slope.}
+
+\item{Show scatter plot of slope vs tp, lsp and cp}
+
+\item{Show a plot of average aggregate spectral slope vs average measured daily slope}
+
+\item{Show slopes conditioned on Orography, mention how ice sheets are excluded due to their unique nature}
+
+\item{Show energy fluxes conditioned on orography}
+
+\item{Talk about how spectra conditioned on surface gradient were disappointing and speculate this is due to the gradient being at an irrelevant scale}
+
+\item{Speculate on how boundary layer investigation could be interesting, conditioned on surface roughness, wind shear, surface temperature and stratification}
+
+\item{Show slopes conditioned on Flux direction}
+
+\item{Speculate about how this could bring back older theories}
+
+\item{Show PI conditioned on direction of energy flux}
+
+\item{Show spectra for different energy flux amounts - more money in the economy so more energy, little difference in slope}
+
+\item{Aggregate energy flux based on the slope of the energy spectrum, do steeper slopes associate with more large scale to small scale flux?}
+
+\item{Why divergent mesoscale energy is a proxy for gravity wave activity}
+
+\item{Condition spectra based on mesoscale div KE}
+
+\item{Condition spectra based on the ratio of Div to Rot KE}
+
+\item{Condition energy flux based on ratio of Div to Rot KE}
+
+\item{Condition spectra based on the surface level pressure}
+
+\item{Condition energy flux based on this, point out that difference in crossover scale may be different characteristic sizes of low and high pressure systems}
+
+\item{Condition spectra by removing precip and land}
+
+\item{Decompose into Rot Div and argue that majority of effect comes from divergent motions}
+
+\end{itemize}
+
+\section{Variability}
+
+\begin{itemize}
+
+\item{Condition spectra by season}
+
+\item{Show global map for each season}
+
+\item{Condition spectra by time of day}
+
+\item{Show global map for each time of day}
+
+\item{Condition spectra by latitude}
+
+\item{Show latitude on x axis, slope on y axis, aggregate and measured}
+
+\end{itemize}
+
+\section{Spectra in ERA5}
+
+\begin{itemize}
+
+\item{Why we don't dwell on ERA5}
+
+\item{Broad patterns are consistent}
+
+\item{Show ERA5 map of spectral slopes}
+
+\end{itemize}
+
+\section{Conclusions}
+
+\begin{itemize}
+
+\item{The importance of multiple perspectives}
+
+\item{We have made it clear that not just downscale is relevant}
+
+\item{Slope has a strong dependence on meteorological conditions}
+
+\item{Variability in slope is in need of an explanation}
+
+\item{Differences in the spectra for different directions of energy flux are in need of explanation}
+
+\item{We can quantify energy transfer in different meteorological situations, this could be interesting for blocking and range of other phenomena}
+
+\item{For a more extended discussion of possible future work, see the next chapter}
+
+\end{itemize}
+
+
+
+

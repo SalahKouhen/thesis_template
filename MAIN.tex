@@ -8,28 +8,27 @@
 %
 % SPDX-License-Identifer:  GPL-2.0-only
 % ____________________________________________________________________________
-%
+%\\
 % DESCRIPTION :
 %
 % Sample DPhil thesis of the Engineering department of 
 % the University of Oxford
 % ____________________________________________________________________________
 
-
 \documentclass{oxengthesis}
-
+\usepackage{xfrac}
 
 %
 % Document metadata
 %
 
 
-\title       {The long-term effects of climate change on farming in Middle Earth}
-\author      {Samwise Gamgee}
-\college     {Jesus College}
-\supervisor  {Professor J.R.R. Tolkien}
-\date        {Hilary Term, 2048}
-
+\title       {Local Power Spectra of the Earth's atmosphere}
+\author      {Salah Kouhen}
+\college     {Linacre College}
+\supervisor  {Professor Hannah M. Christensen, Professor David P. Marshall}
+\date        {Michaelmas Term, 2024}
+\department{Department of Physics, AOPP}
 
 
 %
@@ -49,23 +48,23 @@
 
 % Remove the following line when you are creating your document.
 % It only contains the documentation of the OxEngThesis class
-\include{oxengthesis_class_documentation}
-
+%\include{oxengthesis_class_documentation}
 
 
 \include{chap_introduction}
-\include{chap_literature_review}
-\include{chap_dataset}
-\include{chap_method_1}
-\include{chap_method_2}
+\include{chap_history_slope_atmosphere}
+\include{chap_coarse-graining}
+\include{chap_local_spectra}
+\include{chap_further_applications}
 \include{chap_conclusion}
 
-\appendix
+%\bibliography{references.bib}
+%\appendix
 
-\include{appendix_1}
-\include{appendix_2}
+%\include{appendix_1}
+%\include{appendix_2}
 
 \backmatter 
-\listofreferences
+\listofreferences[apalike]
 
 \end{document}

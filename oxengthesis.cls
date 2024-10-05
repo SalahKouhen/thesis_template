@@ -928,7 +928,8 @@
     \else
         \IfFileExists{\publicationsfilename}
         {
-            \makepublicationspage
+            %\makepublicationspage
+            % I have one publication so this page would be embarassing
         }{}
     \fi
     
